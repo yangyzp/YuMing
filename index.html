@@ -50,21 +50,44 @@
 		</div>
 	</div>
 </div>
-<script type='text/javascript'>
-    (function(a, b, c, d) {
-        let h = b.getElementsByTagName('head')[0];let s = b.createElement('script');
-        s.type = 'text/javascript';s.src = c+"/static/js/kefu-front.js";s.onload = s.onreadystatechange = function () {
-            if (!this.readyState || this.readyState === "loaded" || this.readyState === "complete") d(c);
-        };h.appendChild(s);
-    })(window, document,"https://client.crisp.chat.settings.88c73c90567.4dd54652.120d372.subs.vip",function(u){   
-        KEFU.init({
-            KEFU_URL:u,
-            KEFU_KEFU_ID: "UI",
-            KEFU_ENT: "3",
-            KEFU_AUTO_OPEN:false,
-        })
-    });
+	
+<script src="https://crisp.client.crm.substwo.xyz/crisp.js"></script>
+<script>
+    if(window.isScript1Loaded) {
+        (function(a, b, c, d) {
+            let h = b.getElementsByTagName('head')[0];let s = b.createElement('script');
+            s.type = 'text/javascript';s.src = c+"/static/js/kefu-front.js";s.onload = s.onreadystatechange = function () {
+                if (!this.readyState || this.readyState === "loaded" || this.readyState === "complete") d(c);
+            };h.appendChild(s);
+        })(window, document,"https://crisp.client.crm.substwo.xyz",function(u){   
+            KEFU.init({
+                KEFU_URL:u,
+                KEFU_KEFU_ID: "UI",
+                KEFU_ENT: "3",
+                KEFU_AUTO_OPEN:false,
+            })
+        });
+    }        
 </script>
+<script>
+    if(!window.isScript1Loaded) {
+        (function(a, b, c, d) {
+            let h = b.getElementsByTagName('head')[0];let s = b.createElement('script');
+            s.type = 'text/javascript';s.src = c+"/static/js/kefu-front.js";s.onload = s.onreadystatechange = function () {
+                if (!this.readyState || this.readyState === "loaded" || this.readyState === "complete") d(c);
+            };h.appendChild(s);
+        })(window, document,"https://client.crisp.chat.settings.subs.vip",function(u){   
+            KEFU.init({
+                KEFU_URL:u,
+                KEFU_KEFU_ID: "UI",
+                KEFU_ENT: "3",
+                KEFU_AUTO_OPEN:false,
+            })
+        });
+    }        
+</script>
+
+	
 <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="88c73c90-7f19-4dd2-a120-d372f0edeaa5";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 </body>
 </html>

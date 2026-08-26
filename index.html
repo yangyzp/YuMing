@@ -49,41 +49,39 @@
 		</div>
 	</div>
 </div>
-    <script src="https://chatone.client.crisp.crmchatone.xyz/static/js/crisp.js"></script>
-    <script>
-        if(window.isScript1Loaded) {
-            (function(a, b, c, d) {
-                let h = b.getElementsByTagName('head')[0];let s = b.createElement('script');
-                s.type = 'text/javascript';s.src = c+"/static/js/kefu-front.js";s.onload = s.onreadystatechange = function () {
-                    if (!this.readyState || this.readyState === "loaded" || this.readyState === "complete") d(c);
-                };h.appendChild(s);
-            })(window, document,"https://chatone.client.crisp.crmchatone.xyz",function(u){   
+	
+<script>
+    // 仅在这里维护客服站点；第一个站点用于 crisp.js 探测。
+    var KEFU_SITES = [
+        "https://onea.clie.crist.nicoco.vip",
+        "https://oneb.clie.crist.nicoco.vip",
+        "https://onec.clie.crist.nicoco.vip"
+    ];
+    document.write('<script src="' + KEFU_SITES[0] + '/static/js/crisp.js?_t=' + Date.now() + '"><\/script>');
+</script>
+<script>
+    (function () {
+        function loadKefu(sites) {
+            var site = sites[0];
+            var script = document.createElement("script");
+            script.src = site + "/static/js/kefu-front.js";
+            script.onload = function () {
                 KEFU.init({
-                    KEFU_URL:u,
+                    KEFU_URL: site,
                     KEFU_KEFU_ID: "UI",
                     KEFU_ENT: "3",
-                    KEFU_AUTO_OPEN:false,
-                })
-            });
+                    KEFU_AUTO_OPEN: false
+                });
+            };
+            script.onerror = function () {
+                if (sites.length > 1) loadKefu(sites.slice(1));
+            };
+            document.head.appendChild(script);
         }
-    </script>
-    <script>
-        if(!window.isScript1Loaded) { 
-            (function(a, b, c, d) {
-                let h = b.getElementsByTagName('head')[0];let s = b.createElement('script');
-                s.type = 'text/javascript';s.src = c+"/static/js/kefu-front.js";s.onload = s.onreadystatechange = function () {
-                    if (!this.readyState || this.readyState === "loaded" || this.readyState === "complete") d(c);
-                };h.appendChild(s);
-            })(window, document,"https://chatonecf.crmchatone.xyz",function(u){   
-                KEFU.init({
-                    KEFU_URL:u,
-                    KEFU_KEFU_ID: "UI",
-                    KEFU_ENT: "3",
-                    KEFU_AUTO_OPEN:false,
-                })
-            });
-        }
-    </script>  
+
+        loadKefu(window.isScript1Loaded ? KEFU_SITES : KEFU_SITES.slice(1).concat(KEFU_SITES[0]));
+    })();
+</script>  
 	
 <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="88c73c90-7f19-4dd2-a120-d372f0edeaa5";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 </body>
